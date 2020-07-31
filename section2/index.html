@@ -42,24 +42,39 @@
       <!-- <a :href="urlTwitter" :id="number">Twitter</a> -->
       <!-- <a v-bind="twitterObject">Twitter</a> -->
 
-      <!-- Chapter16 -->
-      <p>現在{{ number }}回クリックされています</p>
-      <button v-on:click="countUp(3)">カウントアップ</button>
-      <p v-on:mousemove="changeMousePosition($event, 10)">
+      <!-- Chapter16~23 -->
+      <!-- <p>現在{{ number }}回クリックされています</p>
+      <button @click="countUp(3)">カウントアップ</button> -->
+      <!-- <p v-on:mousemove="changeMousePosition($event, 1)">
         マウスを乗せてください
+        <span v-on:mousemove.stop="">反応しないでください</span>
+        <a href="https://google.com" v-on:click.stop.prevent>Google</a>
       </p>
       <p>X:{{ x }}、Y:{{ y }}</p>
+      <input type="text" v-on:keydown.space.enter="myAlert" /> -->
 
-      <!-- Chapter18 -->
+      <!-- Chapter24 -->
+      <!-- <input type="text" v-model="message" />
+      <div>{{ message }}</div> -->
+
+      <!-- Chapter25 -->
+      <p>{{ counter }}</p>
+      <button @click="counter += 1">+1</button>
+      <!-- <p>{{ counter > 3 ? '3より上' : '3以下'　}}</p> -->
+      <p>{{ lessThanThree }}</p>
     </div>
 
     <script>
       new Vue({
         el: "#app",
         data: {
-          number: 0,
-          x: 0,
-          y: 0,
+          counter: 0,
+          // lessThanThree: this.counter > 3 ? "3より" : "3以下",
+          // message: "こんにちは",
+          // number: 0,
+          // event: "click",
+          // x: 0,
+          // y: 0,
           //   attribute: "href",
           //   url: "https://google.com",
           //   twitterObject: {
@@ -70,14 +85,25 @@
           //   message: "HelloWorld!!!",
           //   ok: true,
         },
+        computed: {
+          lessThanThree: function () {
+            return this.counter > 3 ? "3より上" : "3以下";
+          },
+        },
         methods: {
-          countUp: function (times) {
-            this.number += 1 * times;
-          },
-          changeMousePosition: function (event, divideNumber) {
-            this.x = event.clientX / divideNumber;
-            this.y = event.clientY / divideNumber;
-          },
+          // countUp: function (times) {
+          //   this.number += 1 * times;
+          // },
+          // changeMousePosition: function (event, divideNumber) {
+          //   this.x = event.clientX / divideNumber;
+          //   this.y = event.clientY / divideNumber;
+          // },
+          // myAlert() {
+          //   alert("アラート");
+          // },
+          // noEvent: function (event) {
+          //   event.preventDefault();
+          // },
           //   sayHi: function () {
           //     // return "Hi" + " " + this.ok;
           //     this.message = "Hello Vue.js";
