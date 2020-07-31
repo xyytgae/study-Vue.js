@@ -57,18 +57,43 @@
       <!-- <input type="text" v-model="message" />
       <div>{{ message }}</div> -->
 
-      <!-- Chapter25 -->
-      <p>{{ counter }}</p>
-      <button @click="counter += 1">+1</button>
+      <!-- Chapter25~27 -->
+      <!-- <p>{{ counter }}</p> -->
+      <!-- <button @click="counter += 1">+1</button> -->
       <!-- <p>{{ counter > 3 ? '3より上' : '3以下'　}}</p> -->
-      <p>{{ lessThanThree }}</p>
+      <!-- <p>{{ lessThanThreeComputed }}</p> -->
+
+      <!-- Chapter28 -->
+      <!-- <p>{{ counter }}</p>
+      <button @click="countUp">+1</button>
+      <button @click="countUp()">+1</button>
+      <p>{{ doubleCounterComputed }}</p>
+      <p>{{ doubleCounterMethod() }}</p> -->
+
+      <!-- Chapter29~30 -->
+      <!-- <h1 :class="classObject">Hello</h1>
+      <button @click="isActive = !isActive">切り替え</button>
+      <h1 :class="[{red: isActive}, bg]">Hello</h1> -->
+
+      <!-- Chapter31 -->
+      <h1 :style="[styleObject, baseStyles]">Hello</h1>
     </div>
 
     <script>
       new Vue({
         el: "#app",
         data: {
-          counter: 0,
+          styleObject: {
+            color: "red",
+            "background-color": "blue",
+          },
+          baseStyles: {
+            fontSize: "60px",
+          },
+          // isActive: true,
+          // color: "red",
+          // bg: "bg-blue",
+          // counter: 0,
           // lessThanThree: this.counter > 3 ? "3より" : "3以下",
           // message: "こんにちは",
           // number: 0,
@@ -86,11 +111,34 @@
           //   ok: true,
         },
         computed: {
-          lessThanThree: function () {
-            return this.counter > 3 ? "3より上" : "3以下";
-          },
+          // classObject: function () {
+          //   return {
+          //     red: this.isActive,
+          //     "bg-blue": this.isActive,
+          //   };
+          // },
+          // doubleCounterComputed: function () {
+          //   return this.counter * 2;
+          // },
         },
+        // watch: {
+        //   counter: function () {
+        //     var vm = this;
+        //     setTimeout(function () {
+        //       vm.counter = 0;
+        //     }, 3000);
+        //   },
+        // },
         methods: {
+          // countUp: function () {
+          //   this.counter += 1;
+          // },
+          // doubleCounterMethod: function () {
+          //   return this.counter * 2;
+          // },
+          // lessThanThreeMethod: function () {
+          //   return this.counter > 3 ? "3より上" : "3以下";
+          // },
           // countUp: function (times) {
           //   this.number += 1 * times;
           // },
@@ -116,5 +164,15 @@
         },
       });
     </script>
+
+    <!-- <style>
+      .red {
+        color: red;
+      }
+
+      .bg-blue {
+        background-color: blue;
+      }
+    </style> -->
   </body>
 </html>
